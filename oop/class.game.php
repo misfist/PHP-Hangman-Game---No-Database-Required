@@ -6,7 +6,7 @@
 * License: Public GNU
 ***/
 
-class game {
+class Game {
 
 	var $health;	//int - player's health
 	var $over;		//bool - toggle game over
@@ -18,8 +18,7 @@ class game {
 	* Preconditions: turn the debugger on (optional)
 	* Postconditions: the game environment is ready to start a game
 	**/
-	function start()
-	{
+	function start() {
 		$this->score = 0;
 		$this->health = 100;
 		$this->over = false;
@@ -31,8 +30,7 @@ class game {
 	* Preconditions: turns on the game over flag
 	* Postconditions: game over flag is true
 	**/
-	function end()
-	{
+	function end() {
 		$this->over = true;
 	}
 	
@@ -41,8 +39,7 @@ class game {
 	* Preconditions: amount (optional)
 	* Postconditions: returns the player's updated score
 	**/
-	function setScore($amount = 0)
-	{
+	function set_score( $amount = 0 ) {
 		return $this->score += $amount;
 	}
 	
@@ -51,9 +48,8 @@ class game {
 	* Preconditions: amount (optional)
 	* Postconditions: returns the player's updated health
 	**/
-	function setHealth($amount = 0)
-	{			
-		return ceil($this->health += $amount);
+	function set_health( $amount = 0 ) {			
+		return ceil( $this->health += $amount );
 	}
 	
 	/**
@@ -61,15 +57,14 @@ class game {
 	* Preconditions: none
 	* Postconditions: returns true or flase
 	**/
-	function isOver()
-	{
-		if ($this->won)
+	function is_over() {
+		if ( $this->won )
 			return true;
 			
-		if ($this->over)
+		if ( $this->over )
 			return true;
 			
-		if ($this->health < 0) 
+		if ( $this->health < 0 ) 
 			return true;
 			
 		return false;
@@ -82,16 +77,14 @@ class game {
 * Preconditions: the object or message to display
 * Postconditions: returns the player's updated score
 **/
-function debug($object = NULL, $msg = "")
-{
-	if (isset($object) || isset($msg))
-	{
+function debug( $object = NULL, $msg = "" ) {
+	if ( isset( $object ) || isset( $msg ) ) {
 		echo "<pre>";
 		
-		if (isset($object))
-			print_r($object);
+		if ( isset( $object ) )
+			print_r( $object );
 			
-		if (isset($msg))
+		if ( isset( $msg ) )
 			echo "\n\t$msg\n";
 		
 		echo "\n</pre>";
@@ -103,9 +96,8 @@ function debug($object = NULL, $msg = "")
 * Preconditions: the message to format
 * Postconditions: formatted message is returned
 **/
-function errorMsg($msg)
-{
-	return "<div class=\"errorMsg\">$msg</div>";
+function error_message( $msg ) {
+	return "<div class=\"error-message\">$msg</div>";
 }
 
 /**
@@ -113,7 +105,6 @@ function errorMsg($msg)
 * Preconditions: the message to format
 * Postconditions: formatted message is returned
 **/
-function successMsg($msg)
-{
-	return "<div class=\"successMsg\">$msg</div>";
+function success_message( $msg ) {
+	return "<div class=\"success-message\">$msg</div>";
 }
